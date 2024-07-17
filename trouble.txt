@@ -1,1 +1,1 @@
-This is another file to test a conflict
+We fixed the merge conflicts here.
