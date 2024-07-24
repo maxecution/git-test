@@ -9,7 +9,7 @@ function AddEditTodo() {
                 <h3>Add/Edit Todo</h3>
             </div>
             <TodoForm />
-        </> // Important to wrap in React.Fragments tags for TodoForm component
+        </> // Important to wrap in React.Fragments tags because multiple closed tags
     )
 }
 
