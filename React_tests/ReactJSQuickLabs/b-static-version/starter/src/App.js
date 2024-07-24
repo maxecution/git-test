@@ -12,12 +12,16 @@ import sampleTodos from './sampleTodos.json';
 
 function App() {
   const [todos, setTodos] = useState(sampleTodos);
+  const submitTodo = (todo) => {
+    const updatedTodos = [...todos, todo]
+    setTodos(updatedTodos);
+  };
   return (
     <div className="container">
       <Header />
       <div className="container">
         <AllTodos data={{ todos }} />
-        <AddEditTodo />
+        <AddEditTodo submitTodo={submitTodo} />
       </div>
       <Footer />
     </div>
