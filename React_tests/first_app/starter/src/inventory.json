@@ -1,0 +1,66 @@
+{
+    "sporting_goods": [
+        {
+            "_id": "sg001",
+            "name": "Tennis Racket",
+            "price": 90,
+            "quantity": 10
+        },
+        {
+            "_id": "sg002",
+            "name": "Basketball",
+            "price": 30,
+            "quantity": 0
+        },
+        {
+            "_id": "sg003",
+            "name": "Soccer Ball",
+            "price": 25,
+            "quantity": 20
+        },
+        {
+            "_id": "sg004",
+            "name": "Baseball Glove",
+            "price": 55,
+            "quantity": 12
+        },
+        {
+            "_id": "sg005",
+            "name": "Smart Shoes",
+            "price": 100,
+            "quantity": 8
+        }
+    ],
+    "electronic": [
+        {
+            "_id": "el001",
+            "name": "Smartphone",
+            "price": 700,
+            "quantity": 25
+        },
+        {
+            "_id": "el002",
+            "name": "Laptop",
+            "price": 1000,
+            "quantity": 0
+        },
+        {
+            "_id": "el003",
+            "name": "Wireless Earbuds",
+            "price": 50,
+            "quantity": 30
+        },
+        {
+            "_id": "el004",
+            "name": "Smartwatch",
+            "price": 250,
+            "quantity": 20
+        },
+        {
+            "_id": "el005",
+            "name": "4K TV",
+            "price": 800,
+            "quantity": 10
+        }
+    ]
+}
