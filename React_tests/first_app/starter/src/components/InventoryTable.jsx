@@ -30,20 +30,11 @@ const InventoryTable = () => {
     return (
         <div>
             <div style={{ marginBottom: '20px' }}>
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    style={{ marginRight: '10px' }}
-                />
+                <input type="text" placeholder="Search..." value={searchTerm} style={{ marginRight: '10px' }}
+                    onChange={handleSearchChange} />
                 <label>
-                    <input
-                        type="checkbox"
-                        checked={inStockOnly}
-                        onChange={handleCheckboxChange}
-                        style={{ marginRight: '5px' }}
-                    />
+                    <input type="checkbox" checked={inStockOnly} style={{ marginRight: '5px' }}
+                        onChange={handleCheckboxChange} />
                     In Stock
                 </label>
             </div>
@@ -60,7 +51,7 @@ const InventoryTable = () => {
                     {filteredSportingGoods.length > 0 ? (
                         filteredSportingGoods.map(item => (
                             <tr key={item._id}>
-                                <td>{item.name}</td>
+                                <td style={{ colour: item.quantity > 0 ? 'black' : 'red' }}>{item.name}</td>
                                 <td>£{item.price.toFixed(2)}</td>
                             </tr>
                         ))
@@ -84,7 +75,7 @@ const InventoryTable = () => {
                     {filteredElectronics.length > 0 ? (
                         filteredElectronics.map(item => (
                             <tr key={item._id}>
-                                <td>{item.name}</td>
+                                <td style={{ colour: item.quantity > 0 ? 'black' : 'red' }}>{item.name}</td>
                                 <td>£{item.price.toFixed(2)}</td>
                             </tr>
                         ))
