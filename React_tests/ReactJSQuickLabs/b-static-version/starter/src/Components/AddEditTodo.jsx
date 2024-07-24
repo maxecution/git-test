@@ -8,13 +8,13 @@ import TodoModel from './utils/Todo.model';
 const AddEditTodo = props => {
     const submitTodo = (todoDescription, todoDateCreated, todoCompleted) => {
         const _id = generateTodoId();
-        /* if (todoDateCreated === undefined || todoDateCreated === null) {
+        if (todoDateCreated === undefined || todoDateCreated === null) {
             console.error("todoDateCreated is required");
             return;
-        } */
+        }
         const newTodo = new TodoModel(
             todoDescription,
-            todoDateCreated?.toISOString(),
+            todoDateCreated.toISOString(), //Or todoDateCreated?.toISOString() and no longer needed the if check earlier
             todoCompleted,
             _id
         );
@@ -26,7 +26,7 @@ const AddEditTodo = props => {
             <div className='addEditTodo row'>
                 <h3>Add/Edit Todo</h3>
             </div>
-            <TodoForm />
+            <TodoForm submitTodo={submitTodo} />
         </> // Important to wrap in React.Fragments tags because multiple closed tags
     );
 };
