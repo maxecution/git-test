@@ -13,10 +13,10 @@ import AddEditTodo from './Components/AddEditTodo';
 
 function App() {
 
-  const [todos, setTodos] = useState();
+  const [todos, setTodos] = useState({});
   useEffect(() => {
     setTodos({ todos: sampleTodos });
-  })
+  }, []);
   const submitTodo = todo => {
     const updatedTodos = [...todos, todo];
     setTodos(updatedTodos);
