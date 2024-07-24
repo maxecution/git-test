@@ -35,27 +35,13 @@ function MilesToKmConverter() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="miles" className="form-label">Miles:</label>
-                    <input
-                        type="number"
-                        name="miles"
-                        id="miles"
-                        min={0}
-                        value={miles}
-                        onChange={handleMilesChange}
-                        className="form-control"
-                    />
+                    <input type="number" name="miles" id="miles" min={0} value={miles} className="form-control"
+                        onChange={handleMilesChange} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="km" className="form-label">Kilometers:</label>
-                    <input
-                        type="number"
-                        name="km"
-                        id="km"
-                        min={0}
-                        value={km}
-                        onChange={handleKmChange}
-                        className="form-control"
-                    />
+                    <input type="number" name="km" id="km" min={0} value={km} onChange={handleKmChange}
+                        className="form-control" />
                 </div>
             </form>
         </div>
