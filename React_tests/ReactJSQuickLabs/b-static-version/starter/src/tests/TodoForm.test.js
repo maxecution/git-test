@@ -9,9 +9,15 @@ jest.mock('../Components/utils/DateCreated', () => {
 });
 
 describe('TodoForm test suite', () => {
+    let submitTodo;
+
+    beforeEach(() => {
+        submitTodo = jest.fn();
+    });
+
     describe('DateCreated function and render tests', () => {
         test('it should render a DateCreated component', () => {
-            const testRenderer = create(<TodoForm />);
+            const testRenderer = create(<TodoForm submitTodo={submitTodo} />);
             const testInstance = testRenderer.root;
             const dateCreated = testInstance.find(
                 el => el.type === 'span' && el.props.testid === 'dateCreated'
@@ -23,18 +29,16 @@ describe('TodoForm test suite', () => {
     describe('onChange event tests', () => {
         test('it should render the new value in the input when todoDescription onChange is activated', () => {
             const testValue = "Test";
-            const { root: testInstance } = create(<TodoForm />);
+            const { root: testInstance } = create(<TodoForm submitTodo={submitTodo} />);
             const descInput = testInstance.findByProps({ name: "todoDescription" })
 
             expect(descInput.props.value).toBe('');
             act(() => { descInput.props.onChange({ target: { value: testValue } }) });
             expect(descInput.props.value).toBe(testValue);
         })
-    });
-    describe('onChange event tests', () => {
         test('it should render the new value in the checkbox when todoCompleted onChange is activated', () => {
             const testValue = true;
-            const { root: testInstance } = create(<TodoForm />);
+            const { root: testInstance } = create(<TodoForm submitTodo={submitTodo} />);
             const descInput = testInstance.findByProps({ name: "todoCompleted" })
 
             expect(descInput.props.checked).toBe(false);

@@ -6,7 +6,7 @@ import Todo from './Todo';
 import TodoModel from './utils/Todo.model';
 
 const AllTodos = ({ data }) => {
-    const todos = data.todos.map(currentTodo => {
+    const todos = data.todos?.map(currentTodo => {
         const todo = new TodoModel(currentTodo.todoDescription, currentTodo.todoDateCreated, currentTodo.todoCompleted, currentTodo._id);
         return <Todo todo={todo} key={todo._id} />
     });

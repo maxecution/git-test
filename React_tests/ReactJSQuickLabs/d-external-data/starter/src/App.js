@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import 'popper.js';
@@ -13,8 +13,10 @@ import AddEditTodo from './Components/AddEditTodo';
 
 function App() {
 
-  const [todos, setTodos] = useState(sampleTodos);
-
+  const [todos, setTodos] = useState();
+  useEffect(() => {
+    setTodos({ todos: sampleTodos });
+  })
   const submitTodo = todo => {
     const updatedTodos = [...todos, todo];
     setTodos(updatedTodos);
@@ -24,7 +26,7 @@ function App() {
     <div className="container">
       <Header />
       <div className="container">
-        <AllTodos data={{ todos }} />
+        <AllTodos data={todos} />
         <AddEditTodo submitTodo={submitTodo} />
       </div>
       <Footer />
