@@ -19,6 +19,7 @@ function App() {
 
   const [todos, setTodos] = useState({});
   const [getError, setGetError] = useState('');
+  const [postError, setPostError] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -37,16 +38,23 @@ function App() {
       setGetError(`Data not available from server: ${e.message}`);
       return { error: `Data not available from server: ${e.message}` };
     }
-  }
+  };
 
-  const submitTodo = todo => {
-    const updatedTodos = [...todos, todo];
-    setTodos(updatedTodos);
-  }
+  const submitTodo = async (todo) => {
+    setPostError('');
+    try {
+      await axios.post(TODOSURL, todo);
+    } catch (e) {
+      setPostError('Unable to add the todo');
+    } finally {
+      setTodos(await getTodos());
+    }
+  };
 
   return (
     <>
       {getError && <Modal handleClose={() => setGetError('')} message={getError} />}
+      {postError && <Modal handleClose={() => setPostError('')} message={postError} />}
       <div className="container">
         <Header />
         <div className="container">
@@ -57,6 +65,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
